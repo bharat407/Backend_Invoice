@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const Footer = () => {
   return (
-    <div>Footer</div>
-  )
-}
+    <div className=" inline-flex">
+      <div className=" text-center text-lg text-white">Footer</div>
+    </div>
+  );
+};
 
-export default Footer
+export default Footer;
