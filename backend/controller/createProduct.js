@@ -1,25 +1,27 @@
-const User = require("../models/User");
+const Product = require("../models/Product");
 
-exports.createUser = async (req, res) => {
+exports.createProduct = async (req, res) => {
   try {
     console.log("req body", req.body);
-    const { name, email, password } = req.body;
-    if (!name || !email || !password) {
+    const { name, price, details, taxrates, taxmethod } = req.body;
+    if (!name || !price || !details || !taxrates || !taxmethod) {
       console.log("Not all fields...");
       return res.status(400).json({
         status: 400,
         message: "Please fill all fields",
       });
     }
-    const user = await User.create({
+    const product = await Product.create({
       name,
-      email,
-      password,
+      price,
+      details,
+      taxrates,
+      taxmethod,
     });
     return res.status(200).json({
       status: 201,
-      message: "User created successfully",
-      data: user,
+      message: "Product created successfully",
+      data: product,
     });
   } catch (error) {
     console.log("error", error);

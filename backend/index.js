@@ -1,7 +1,7 @@
 const express = require("express");
 require("dotenv").config();
 const dbConnect = require("./config/database");
-const userRoutes = require("./routes/user");
+const productRoutes = require("./routes/product");
 const app = express();
 var cors = require("cors");
 const PORT = process.env.PORT || 4000;
@@ -11,7 +11,7 @@ app.use(
   })
 );
 app.use(express.json());
-app.use("/api/v1", userRoutes);
+app.use("/api/v1", productRoutes);
 app.listen(PORT, () => {
   console.log(`THE SERVER IS UP AND RUNNING AT PORT ${PORT}`);
 });
