@@ -1,5 +1,6 @@
 const express = require("express");
 require("dotenv").config();
+const bodyParser = require('body-parser');
 const dbConnect = require("./config/database");
 const productRoutes = require("./routes/product");
 const customerRoutes = require("./routes/customer");
@@ -12,6 +13,7 @@ app.use(
   })
 );
 app.use(express.json());
+app.use(bodyParser.json());
 app.use("/api/v1", productRoutes);
 app.use("/api/v1", customerRoutes);
 app.listen(PORT, () => {
